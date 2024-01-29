@@ -33,6 +33,10 @@ public class KeyInputs implements KeyListener{
 				panel.getWordle().deleteLetter();
 			}
 		}
+
+		if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+			panel.getWordle().reset();
+		}
 		
 		
 		

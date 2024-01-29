@@ -97,6 +97,20 @@ public class Wordle implements Runnable{
 	public static int randomNumber(int low, int high) {
 		return (int) (Math.random() * (high - (low - 1))) + low;
 	}
+
+	public void reset(){
+		win = false;
+		lost = false;
+		attempt = 0;
+		for(int i = 0; i < allWords.length; i++) {
+			for(int j = 0; j < allWords[i].length; j++) {
+				allWords[i][j] = ' ';
+				colourHints[i][j] = new Color(255, 255, 255);
+			}
+			
+		}
+		wordToWin = validWords[randomNumber(0, validWords.length-1)].toUpperCase();
+	}
 	
 	public Color compareLetters(int column, int row) {
 		if(allWords[row][column] == wordToWin.charAt(column)) {
